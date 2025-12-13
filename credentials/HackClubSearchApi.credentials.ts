@@ -5,11 +5,11 @@ import type {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class BraveSearchApi implements ICredentialType {
-	name = 'braveSearchApi';
-	icon = 'file:../nodes/BraveSearch/braveSearch.svg' as const;
-	displayName = 'Brave Search API';
-	documentationUrl = 'https://api-dashboard.search.brave.com/app/documentation/';
+export class HackClubSearchApi implements ICredentialType {
+	name = 'hackClubSearchApi';
+	icon = 'file:../nodes/HackclubSearch/hackclubsearch.svg' as const;
+	displayName = 'Hack Club Search API';
+	documentationUrl = 'https://search.hackclub.com/docs';
 
 	properties: INodeProperties[] = [
 		{
@@ -25,7 +25,7 @@ export class BraveSearchApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				'X-Subscription-Token': '={{$credentials.apiKey}}',
+				Authorization: '={{"Bearer " + $credentials.apiKey}}',
 			},
 		},
 	};
@@ -37,12 +37,12 @@ export class BraveSearchApi implements ICredentialType {
 	 */
 	test: ICredentialTestRequest = {
 		request: {
-			url: 'https://api.search.brave.com/res/v1/web/search',
+			url: 'https://search.hackclub.com/res/v1/web/search',
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
 				'Accept-Encoding': 'gzip',
-				'X-Subscription-Token': '={{$credentials.apiKey}}',
+				Authorization: '={{"Bearer " + $credentials.apiKey}}',
 			},
 			qs: {
 				q: 'n8n',

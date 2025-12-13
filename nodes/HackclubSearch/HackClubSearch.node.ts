@@ -15,23 +15,23 @@ import { OPERATIONS, PROPERTIES, type BraveSearchOperation } from './operations'
  * https://docs.n8n.io/integrations/creating-nodes/build/reference/verification-guidelines/
  * https://docs.n8n.io/integrations/creating-nodes/build/reference/ux-guidelines/
  */
-export class BraveSearch implements INodeType {
+export class HackClubSearch implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Brave Search',
-		name: 'braveSearch',
+		displayName: 'Hack Club Search',
+		name: 'hackClubSearch',
 		subtitle: '={{$parameter["operation"]}}',
-		icon: 'file:braveSearch.svg',
+		icon: 'file:hackclubsearch.svg',
 		group: ['transform'],
 		version: 1,
-		description: 'Search the web using Brave Search',
+		description: 'Search the web using Hack Club Search',
 		defaults: {
-			name: 'Brave Search',
+			name: 'Hack Club Search',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'braveSearchApi',
+				name: 'hackClubSearchApi',
 				required: true,
 			},
 		],
@@ -45,7 +45,7 @@ export class BraveSearch implements INodeType {
 
 		for (let i = 0; i < items.length; i++) {
 			try {
-				raw_results.push(await BraveSearch.performRequest(this, i));
+				raw_results.push(await HackClubSearch.performRequest(this, i));
 			} catch (error) {
 				// If the user has chosen to continue on failure (from within the node settings),
 				if (this.continueOnFail()) {
@@ -106,10 +106,10 @@ export class BraveSearch implements INodeType {
 
 	static async performRequest(ctx: IExecuteFunctions, index: number): Promise<any> {
 		const operation = OPERATIONS[ctx.getNodeParameter('operation', index)];
-		const params = BraveSearch.buildParams(ctx, operation, index);
+		const params = HackClubSearch.buildParams(ctx, operation, index);
 		// TODO (Sampson): Modify this approach to support multiple goggle URLs, etc.
-		const response = await ctx.helpers.httpRequestWithAuthentication.call(ctx, 'braveSearchApi', {
-			url: `https://api.search.brave.com/res/v1${operation.endpoint}`,
+		const response = await ctx.helpers.httpRequestWithAuthentication.call(ctx, 'hackClubSearchApi', {
+			url: `https://search.hackclub.com/res/v1${operation.endpoint}`,
 			qs: operation.buildQuery(params),
 			returnFullResponse: true,
 			json: true,

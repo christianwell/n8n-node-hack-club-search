@@ -1,17 +1,17 @@
 {
-	"node": "n8n-nodes-base.braveSearch",
+	"node": "n8n-nodes-base.HackclubSearch",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Productivity", "Miscellaneous", "Utility"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://api-dashboard.search.brave.com/app/documentation"
+				"url": "https://search.hackclub.com/docs"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://api-dashboard.search.brave.com/app/documentation"
+				"url": "https://search.hackclub.com/docs"
 			}
 		]
 	}

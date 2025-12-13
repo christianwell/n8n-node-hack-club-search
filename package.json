@@ -1,24 +1,24 @@
 {
-  "name": "@brave/n8n-nodes-brave-search",
-  "version": "1.0.25",
-  "description": "A n8n node for the Brave Search API",
+  "name": "n8n-nodes-hack-club-search",
+  "version": "1.0.0",
+  "description": "A n8n node for the Hack Club Search API",
   "keywords": [
     "api",
     "search",
-    "brave",
-    "brave search",
-    "brave search api",
+    "hack club",
+    "hack club search",
+    "hack club search api",
     "n8n-community-node-package"
   ],
   "license": "MIT",
-  "homepage": "https://www.npmjs.com/package/@brave/n8n-nodes-brave-search",
+  "homepage": "https://github.com/christianwell/n8n-node-hack-club-search",
   "author": {
-    "name": "Sampson",
-    "email": "sampson@brave.com"
+    "name": "Christian Well",
+    "email": "christian@dubsky.dk"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brave/n8n-nodes-brave-search.git"
+    "url": "https://github.com/christianwell/n8n-node-hack-club-search.git"
   },
   "engines": {
     "node": ">=18.10",
@@ -43,10 +43,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/BraveSearchApi.credentials.js"
+      "dist/credentials/HackClubSearchApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/BraveSearch/BraveSearch.node.js"
+      "dist/nodes/HackclubSearch/HackClubSearch.node.js"
     ]
   },
   "devDependencies": {
@@ -59,6 +59,7 @@
     "globals": "16.5.0",
     "gulp": "5.0.1",
     "jsonc-eslint-parser": "2.4.1",
+    "n8n": "^1.123.5",
     "prettier": "3.7.4",
     "typescript": "5.9.3"
   },
@@ -71,7 +72,11 @@
     },
     "onlyBuiltDependencies": [
       "es5-ext",
-      "eslint-plugin-n8n-nodes-base"
+      "eslint-plugin-n8n-nodes-base",
+      "sqlite3"
     ]
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
   }
 }
