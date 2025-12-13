@@ -1,13 +1,13 @@
 {
-  "name": "n8n-nodes-hack-club-search",
+  "name": "n8n-nodes-hackclub-search",
   "version": "1.0.0",
   "description": "A n8n node for the Hack Club Search API",
   "keywords": [
     "api",
     "search",
+    "hackclub",
     "hack club",
-    "hack club search",
-    "hack club search api",
+    "hackclub search",
     "n8n-community-node-package"
   ],
   "license": "MIT",
